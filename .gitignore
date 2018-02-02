@@ -13,5 +13,41 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+!/tmp/pids/.keep
 
 .byebug_history
+
+.secret
+/vendor/bundle
+/config/initializers/secret_token.rb
+/config/memcached.yml
+/public/assets
+node_modules/
+pids
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.swp
+*~
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+browserify-cache.json
+
+dump.rdb
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+/public/packs
