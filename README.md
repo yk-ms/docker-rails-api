@@ -15,6 +15,11 @@ $ docker-compose -f docker-compose.development.yml build
 $ docker-compose -f docker-compose.development.yml run --rm web rake db:create
 ```
 
+### Table Creation
+```
+$ docker-compose -f docker-compose.development.yml run --rm web ridgepole -c config/database.yml -E development --apply -f db/schemas/Schemafile
+```
+
 ### Up
 
 ```
