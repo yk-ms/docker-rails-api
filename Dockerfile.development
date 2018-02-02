@@ -1,0 +1,11 @@
+FROM ruby:2.5.0
+
+RUN apt-get update
+RUN apt-get install -y build-essential libpq-dev nodejs mysql-client
+
+RUN mkdir /docker-rails-api
+WORKDIR /docker-rails-api
+ADD Gemfile /docker-rails-api/Gemfile
+ADD Gemfile.lock /docker-rails-api/Gemfile.lock
+RUN bundle install
+ADD . /docker-rails-api
