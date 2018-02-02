@@ -9,8 +9,6 @@ AllCops:
     - 'config/environments/*'
     - 'config/initializers/*'
     - 'config/application.rb'
-    - 'Gemfile'
-    - 'Gemfile.lock'
     - 'Rakefile'
     - 'bin/*'
   TargetRubyVersion: 2.5
