@@ -1,0 +1,29 @@
+# This is the configuration used to check the rubocop source code.
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'db/seeds.rb'
+    - 'config/routes.rb'
+    - 'config/environments/*'
+    - 'config/initializers/*'
+    - 'config/application.rb'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - 'Rakefile'
+    - 'bin/*'
+  TargetRubyVersion: 2.5
+
+AsciiComments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+# 1行の文字数制限
+Metrics/LineLength:
+  Max: 100
