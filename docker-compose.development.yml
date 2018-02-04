@@ -1,18 +1,11 @@
-version: '2'
+version: '3'
 services:
-  datastore:
-    image: busybox
-    volumes:
-      - mysql-data:/var/lib/mysql
-
   db:
     image: mysql:5.7.20
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
       - '3306:3306'
-    volumes_from:
-      - datastore
 
   web:
     build:
@@ -23,11 +16,5 @@ services:
       - '3000:3000'
     volumes:
       - .:/docker-rails-api
-    volumes_from:
-      - datastore
     depends_on:
       - db
-
-volumes:
-  mysql-data:
-    driver: local
