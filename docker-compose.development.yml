@@ -16,5 +16,7 @@ services:
       - '3000:3000'
     volumes:
       - .:/docker-rails-api
+    environment:
+      RAILS_ENV: development
     depends_on:
       - db
