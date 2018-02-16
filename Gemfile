@@ -34,8 +34,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'guard-rspec'
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
 end
