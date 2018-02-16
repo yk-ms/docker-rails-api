@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/yomasaa/docker-rails-api/tree/master.svg?style=svg)](https://circleci.com/gh/yomasaa/docker-rails-api/tree/master)
+
 # docker-rails-api
 * Ruby on Rails 5 API mode sample on Docker
 
