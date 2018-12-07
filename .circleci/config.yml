@@ -13,7 +13,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+            - v1-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/caches/images.tar
       - run:
@@ -40,6 +40,19 @@ jobs:
       - run:
           name: test
           command: docker-compose run web rspec
+      - run:
+          command: mkdir -p ~/caches
+          name: mkdir -p ~/caches
+      - run:
+          command: |
+            if [[ ! -e ~/caches/images.tar ]]; then
+              docker save -o ~/caches/images.tar $(docker images --filter "dangling=false" --format "{{.Repository}}:{{.Tag}}")
+            fi
+          name: docker save
+      - save_cache:
+          key: v1-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/caches/images.tar
       - run:
           name: docker-compose down
           command: docker-compose down
