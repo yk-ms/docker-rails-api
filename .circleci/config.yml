@@ -13,7 +13,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+            - v1-{{ checksum "Gemfile.lock" }}
           paths:
             - ~/caches/images.tar
       - run:
@@ -50,7 +50,7 @@ jobs:
             fi
           name: docker save
       - save_cache:
-          key: v1-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          key: v1-{{ checksum "Gemfile.lock" }}
           paths:
             - ~/caches/images.tar
       - run:
