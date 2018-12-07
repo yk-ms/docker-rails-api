@@ -11,6 +11,17 @@ jobs:
         COMPOSE_FILE: docker-compose.development.yml
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/caches/images.tar
+      - run:
+          name: docker load
+          command: |
+            if [[ -e ~/caches/images.tar ]]; then
+              docker load -i ~/caches/images.tar
+            fi
       - run:
           name: docker-compose build
           command: docker-compose build
