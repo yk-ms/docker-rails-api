@@ -29,9 +29,6 @@ jobs:
           name: docker-compose up
           command: docker-compose up -d
       - run:
-          name: sleep for waiting launch db
-          command: sleep 5
-      - run:
           name: "before_test: setup db"
           command: docker-compose run --rm web rails db:create
       - run:
